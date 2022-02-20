@@ -63,3 +63,17 @@ func TestDecks_Collect(t *testing.T) {
 	assert.Equalf(t, 0, p.Count(), "invalid card count : hand1")
 	assert.Equalf(t, 52, d.Main().Count(), "invalid card count : main")
 }
+
+func TestDecks_Seed(t *testing.T) {
+	d := NewDecks(1)
+	d.SetSeed(1)
+	d.Main().Shuffle()
+	c := d.Main().Card(0)
+
+	d2 := NewDecks(1)
+	d2.SetRandomSeed()
+	d2.Main().Shuffle()
+	c2 := d2.Main().Card(0)
+
+	assert.NotEqual(t, c, c2, "cards should not be equal (in most cases)")
+}

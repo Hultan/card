@@ -34,7 +34,7 @@ func NewDecks(numDecks int) *Decks {
 }
 
 func (d *Decks) SetRandomSeed() {
-	rand.Seed(time.Now().UnixNano())
+	d.SetSeed(time.Now().UnixNano())
 }
 
 func (d *Decks) SetSeed(seed int64) {

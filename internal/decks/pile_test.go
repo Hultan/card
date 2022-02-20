@@ -1,7 +1,6 @@
 package decks
 
 import (
-	"fmt"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
@@ -70,8 +69,6 @@ func TestPile_Card(t *testing.T) {
 	h1 := d.CreatePile("Hand1")
 	d.Main().DealToPile(5, h1)
 	c := h1.Card(0)
-	fmt.Println(c.Suit())
-	fmt.Println(c.Rank())
 	assert.NotNil(t, c, "card should not be nil")
 	assert.Equal(t, SuitHeart, c.Suit(), "card color should be heart")
 	assert.Equal(t, RankTwo, c.Rank(), "card rank should be two")
